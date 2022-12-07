@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        form {
+            border: 3px solid #f1f1f1;
+            margin: 5% 10%;
+            padding: 10px;
+            background-color: rgb(164, 187, 187);
+        }
+        .show{
+            border: 3px solid #f1f1f1;
+            margin: 5% 10%;
+            padding: 10px;
+            background-color: rgb(164, 187, 187);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(315deg, rgb(55, 73, 112) 60%, rgb(51, 102, 96) 100%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        button {
+            padding: 6px;
+            margin: 4px;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            color: black;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a href="/homepage" style="padding:0;">
+            <img src="http://localhost:3000/photos/logo.png" height="45px" width="45px" alt="logo">
+            </a>
+            <a  href="/adminpage">DataEntry</a>
+            <a href="/update">UpdateData</a>
+            <a href="/complains">Complains</a>
+            <a href="/ProjectDetails">Projects</a>
+            <a href="/AddProject">AddProjects</a>
+        
+        
+            <span style="float:right;margin-right: 10px;">
+              <a class="active"  href="/reset">ResetPassword</a>
+              <a href="/homepage">Logout</a>
+            </span>
+    </div>
+
+<div>
+    <form action="/reset" method="post">
+    <label for="userid">
+        Employee Username:
+        </label>
+        <input id="userid" type="text" placeholder="Enter Employee ID" name="username"><br>
+
+        <label for="prev_pass">
+        Previous Password:
+        </label>
+        <input id="prev_pass" type="password" placeholder="Enter Previous password" name="prev_pass"><br>
+
+        <label for="new_pass">
+        New Password:
+        </label>
+        <input id="new_pass" type="password" placeholder="Enter New Password" name="new_pass"><br>
+
+        <label for="new_pass1">
+        Conform New Password:
+        </label>
+        <input id="new_pass1" type="password" placeholder="Confirm New Password" name="conf_pass"><br><br>
+
+        <button type="submit" name="submit">Change Password</button>
+    </form>    
+</div>
+<h3 style="text-align: center">
+
+</h2>
+
+</body>
+
+
+</html>

@@ -1,0 +1,151 @@
+<?php
+//include("simple_html_dom.php");
+session_start();
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!==true){
+    header('location: login.php');
+}
+?>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        form {
+            width: 50%;
+            border: 3px solid #f1f1f1;
+            margin: 5% auto;
+            padding: 10px;
+            background-color: rgb(164, 187, 187);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(315deg, rgb(55, 73, 112) 60%, rgb(51, 102, 96) 100%);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px 12px;
+            background-color: #04AA6D;
+            color: white;
+        }
+        select {
+        width: 160px;
+        padding: 3px;
+        
+    }
+    select:focus {
+        min-width: 150px;
+        width: auto;
+    }
+ p{
+            color:red;
+            text-align: center;
+            font-size: 12px
+        }
+    </style>
+ <script type="text/javascript">
+   function func_citizenid(){
+       var id=document.getElementById("citizen").value;
+        var reg=/^[a-zA-Z0-9_]{6,15}$/;
+       if(!reg.test(id)){
+           document.getElementById("citizen").style.border="2px solid red";
+           document.getElementById("text").innerHTML="Enter correct Citizen ID (6-15)character !!!";
+       }
+       else{
+           document.getElementById("citizen").style.border="2px solid green";
+           document.getElementById("text").innerHTML="";
+       }
+   }
+
+
+   
+    </script>
+</head>
+
+<body>
+
+    
+<div class="topnav">
+    <a href="/homepage" style="padding:0;">
+        <img src="http://localhost:3000/photos/logo.png" height="45px" width="45px" alt="logo">
+        </a>
+        <a  href="/adminpage">DataEntry</a>
+        <a class="active" href="/update">UpdateData</a>
+        <a href="/complains">Complains</a>
+        <a href="/ProjectDetails">Projects</a>
+        <a href="/AddProject">AddProjects</a>
+
+
+<span style="float:right;margin-right: 10px;">
+  <a href="/reset">ResetPassword</a>
+  <a href="/homepage">Logout</a>
+</span>
+</div>
+    <h1 style="text-align: center;color: white"> Update the attribute you want</h1>
+    
+    <form action="/update" method="post">
+        <h3> Input the Citizenid Present in Record</h3>
+        <input type="text" name="citizenid" id="citizen" onchange="func_citizenid()" required><p id="text"></p><br>
+
+        
+        <h3>Select the attribute you want to update</h3>
+
+        <select name ="select" id="select" >
+                        
+        <option value="ID_No" >Citizen_ID</option>
+            <option value="firstname">First Name</option>
+            <option value="middlename">Middle Name</option>
+            <option value="lastname">Last Name</option>
+            <option value="familyname">Family Name</option>
+            <option value="gender">Gender</option>
+            <option value="city">city</option>
+            <option value="zipcode">Zip Code</option>
+            <option value="streetname">streetname</option>
+            <option value="streetno">street number</option>
+            <option value="houseno">housenumber</option>
+            <option value="dateofbirth">Date of birth</option>
+            <option value="phonenumber">Phone Number</option>
+            <option value="marriageID">Marrige ID</option>
+            
+          </select>
+          <h3>Enter the value to be kept in record</h3>
+          <input type="text" name="value" id="val" ><p id="text1"></p><br>
+          <button type="submit" name="submit" >submit</button>
+      
+    </form>
+
+</html>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
